@@ -1,0 +1,159 @@
+/* Cover 03 · hook-numbers — 30 min → 3 min 时间反差
+ * Prefix: .cv3-
+ *
+ * 颜色 / 字体全走 var(--token)。复用模板时本文件**不需要任何替换**。
+ * .cv3-bar-short width=16% 是按 30 → 3 的视觉比例算的（10 倍数）；
+ * 如果项目数字比例不同，建议调成 NUM_AFTER / NUM_BEFORE × 100%。
+ */
+
+.cv3-stage {
+  position: absolute;
+  top: 220px;
+  left: 100px;
+  right: 100px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.cv3-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 48px 56px;
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+}
+
+.cv3-card-after {
+  position: relative;
+}
+.cv3-card-after::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-glow) 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.cv3-num {
+  font-family: var(--font-display-en);
+  font-weight: 900;
+  font-size: 280px;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--text);
+}
+.cv3-card-after .cv3-num {
+  color: var(--accent);
+}
+
+.cv3-unit {
+  font-family: var(--font-display-en);
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-left: 12px;
+  color: var(--text-mute);
+}
+
+.cv3-label {
+  font-family: var(--font-body);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text-mute);
+  letter-spacing: 0.06em;
+}
+.cv3-card-after .cv3-label {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.cv3-bar {
+  height: 10px;
+  border-radius: 6px;
+  background: var(--rule);
+  margin-top: 8px;
+}
+.cv3-bar-long {
+  width: 100%;
+}
+.cv3-bar-short {
+  width: 16%;
+  background: var(--accent);
+}
+
+.cv3-arrow {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 60px;
+  color: var(--text-mute);
+}
+
+.cv3-caption {
+  position: absolute;
+  top: 670px;
+  left: 100px;
+  right: 100px;
+  text-align: center;
+  font-family: var(--font-display-cn);
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--text);
+}
+
+.cv3-em {
+  color: var(--accent);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 65%,
+    var(--accent-soft) 65%,
+    var(--accent-soft) 92%,
+    transparent 92%
+  );
+  padding: 0 0.08em;
+}
+
+/* 竖屏 / 方形：1080 宽 3 列 grid (1fr auto 1fr) 容不下两张大数字卡 +
+ * arrow，叠成单列 before → arrow → after。caption 位置也下移。 */
+.cv-base-root--9x16 .cv3-stage,
+.cv-base-root--3x4 .cv3-stage,
+.cv-base-root--1x1 .cv3-stage {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 36px;
+}
+.cv-base-root--9x16 .cv3-num,
+.cv-base-root--3x4 .cv3-num,
+.cv-base-root--1x1 .cv3-num {
+  font-size: 200px;
+}
+.cv-base-root--1x1 .cv3-num {
+  font-size: 160px;
+}
+.cv-base-root--9x16 .cv3-arrow,
+.cv-base-root--3x4 .cv3-arrow,
+.cv-base-root--1x1 .cv3-arrow {
+  transform: rotate(90deg);
+  width: 80px;
+  height: 80px;
+  justify-self: center;
+}
+.cv-base-root--9x16 .cv3-caption,
+.cv-base-root--3x4 .cv3-caption,
+.cv-base-root--1x1 .cv3-caption {
+  top: auto;
+  bottom: 200px;
+  font-size: 48px;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "webvideo",
+  "version": "1.14.0",
+  "category": "Web Video / Presentation",
+  "description": "Turn scripts, articles, lessons, product demos, and talks into click-driven web presentations that can be screen-recorded as cinematic videos. v1.7 adds three orientations: landscape 16:9 (1920×1080) / portrait 9:16 (1080×1920) / square 1:1 (1080×1080) — chapter projects are single-orientation (locked at scaffold time via --orientation), covers use a single codebase with 5 ratio modifier classes (16x9 / 4x3 / 9x16 / 3x4 / 1x1) selected automatically per project. v1.8 adds TTS-safe narration text rules (disambiguate polyphonic characters into full words, expand abbreviations to their spoken form, convert unit symbols to spoken Chinese units) enforced across SCRIPT-STYLE / CHAPTER-CRAFT / AUDIO so synthesized voiceover doesn't mispronounce. Ships a Vite + React + TypeScript scaffold, a (chapter, step) cursor model, hard collaboration checkpoints, a theme-token architecture, a programmatic Playwright + ffmpeg rendering pipeline (mp4 at the project's orientation, no post-crop), and a Phase 5 distribution pack (5-variant cover AB-test pack + ≤250-char description.md + HH:MM:SS chapters.md for platform timeline markers).",
+  "homepage": "https://github.com/ConardLi/garden-skills/tree/main/skills/web-video-presentation",
+  "compat": [
+    "claude-code",
+    "claude-ai",
+    "cursor",
+    "codex-cli",
+    "gemini-cli",
+    "opencode"
+  ],
+  "upstream": "web-video-presentation"
+}

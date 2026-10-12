@@ -1,0 +1,60 @@
+# webvideo — references index (llms.txt)
+
+把一篇文章/口播稿做成点击驱动的网页视频演示。下面是 references/ 的
+机器可读索引：agent 按「何时读」定位文件，不必通读所有长 md。
+
+> 本文件由 scripts/gen-index.mjs 自动生成 —— 不要手改，跑脚本重生成。
+> 一行用途取自各文件首个标题 + SKILL.md「各阶段文件读取指南」。
+
+## Files
+
+- [references/AUDIO.md] 音频合成
+  when: Phase 3 音频合成时才读
+  use:  MiniMax/indextts CLI、narrations→segments→mmx 流程、subagent 长任务严禁 run_in_background、合成前核 TTS 友好文本
+
+- [references/CHAPTER-CRAFT.md] 章节开发指引（每章开发必读）
+  when: Phase 2.4 实现单章 · 每章单一必读入口（×N 次）
+  use:  十条原则 / 开工5问 / 关系→动作决策树 / 视觉工具箱 / 手机字号阈值 / 反AI味 / 代码红线 / 完工自检
+
+- [references/COVER.md] 视频分发包 · 封面 AB + 简介 + 章节标记
+  when: Phase 5 分发包 · 单一必读入口
+  use:  5变体AB策略 / 单变量原则 / 反AI味 / 渲染流程 / description 4段式 / chapters.md 格式 / 中文流量打法
+
+- [references/EXAMPLES/] EXAMPLES/
+  when: 可选 —— 卡壳时翻「形」，不是抄袭模板
+  use:  章节结构示意：hook-chapter / list-reveal / case-tech-review
+
+- [references/OUTLINE-FORMAT.md] `outline.md` 格式 spec
+  when: Phase 1.2 内容编写 · 必读
+  use:  outline.md 字段 spec、章节/step 切分、章节首段「信息池」、素材清单格式
+
+- [references/RECORDING.md] 录制与后期合成
+  when: Phase 4 录屏+后期时才读
+  use:  程序化渲染 render-video / Auto 模式 ?auto=1 一镜到底 / 手动录屏三路径 + 后期工具
+
+- [references/SCRIPT-STYLE.md] 文章 → 口播稿风格指南
+  when: Phase 1.2 内容编写 · 必读
+  use:  文章→B站风口播稿规则、去AI味五类、TTS友好文本三类清洗、按 orientation 调节奏
+
+- [references/SERIES-BATCH.md] 系列批量改版 —— 给已完成系列的所有集数做统一结构调整
+  when: —
+  use:  系列批量改版 —— 给已完成系列的所有集数做统一结构调整
+
+- [references/THEMES.md] 主题系统
+  when: Checkpoint Plan 选主题 / 造主题 / 切主题时
+  use:  完整 token 契约 + 内置主题清单 + 创作新主题流程 + font-size token 建议
+
+## Phase → file map
+
+- Phase 1.2 内容编写: references/SCRIPT-STYLE.md + references/OUTLINE-FORMAT.md
+- Checkpoint Plan 选主题: themes/*/theme.json (+ references/THEMES.md)
+- Phase 2.4 实现单章 (×N): references/CHAPTER-CRAFT.md
+- Phase 3 音频合成: references/AUDIO.md
+- Phase 4 录屏+后期: references/RECORDING.md
+- Phase 5 分发包: references/COVER.md
+
+## Offline docs CLI
+
+无需通读 —— 抓某文件关键段落到终端：
+  node scripts/docs.mjs <topic>     # topic: script|outline|chapter|theme|audio|record|cover|examples
+  node scripts/docs.mjs --list      # 列所有 topic

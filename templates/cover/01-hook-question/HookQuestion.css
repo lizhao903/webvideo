@@ -1,0 +1,79 @@
+/* Cover 01 · hook-question — 疑问钩子句 + 巨问号
+ * Prefix: .cv1-
+ *
+ * 颜色 / 字体全走 var(--token)。复用模板时本文件**不需要任何替换** ——
+ * 如要微调字号 / 留白，直接改这里（仅影响 01 变体，不破坏其他变体）。
+ */
+
+.cv1-stage {
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  right: 100px;
+  bottom: 220px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 60px;
+}
+
+.cv1-quote {
+  font-family: var(--font-display-cn);
+  font-size: 120px;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+.cv1-em {
+  color: var(--accent);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 65%,
+    var(--accent-soft) 65%,
+    var(--accent-soft) 92%,
+    transparent 92%
+  );
+  padding: 0 0.08em;
+}
+
+.cv1-mark {
+  font-family: var(--font-display-en);
+  font-size: 720px;
+  font-weight: 900;
+  line-height: 0.8;
+  color: var(--accent);
+  letter-spacing: -0.08em;
+  transform: translateY(-30px) rotate(8deg);
+  text-shadow: 12px 12px 0 var(--accent-soft);
+}
+
+/* 竖屏 / 方形：1080 宽放不下 720px 巨问号 + 引语两列，改成单列上下叠。
+ * 巨问号缩到 ~520px 放上方，引语放下方。 */
+.cv-base-root--9x16 .cv1-stage,
+.cv-base-root--3x4 .cv1-stage,
+.cv-base-root--1x1 .cv1-stage {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  text-align: center;
+}
+.cv-base-root--9x16 .cv1-mark,
+.cv-base-root--3x4 .cv1-mark,
+.cv-base-root--1x1 .cv1-mark {
+  font-size: 520px;
+  order: -1;
+  transform: rotate(8deg);
+}
+.cv-base-root--1x1 .cv1-mark {
+  font-size: 360px;
+}
+.cv-base-root--9x16 .cv1-quote,
+.cv-base-root--3x4 .cv1-quote,
+.cv-base-root--1x1 .cv1-quote {
+  font-size: 84px;
+}
+.cv-base-root--1x1 .cv1-quote {
+  font-size: 64px;
+}

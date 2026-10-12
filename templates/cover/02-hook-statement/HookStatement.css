@@ -1,0 +1,106 @@
+/* Cover 02 · hook-statement — 第一阶段 vs 第二阶段陈述
+ * Prefix: .cv2-
+ *
+ * 颜色 / 字体全走 var(--token)。复用模板时本文件**不需要任何替换**。
+ */
+
+.cv2-stage {
+  position: absolute;
+  top: 220px;
+  left: 100px;
+  right: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.cv2-line {
+  display: flex;
+  align-items: baseline;
+  gap: 50px;
+  font-family: var(--font-display-cn);
+  line-height: 1.05;
+}
+
+.cv2-num {
+  font-family: var(--font-display-en);
+  font-size: 220px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  display: inline-block;
+  min-width: 180px;
+}
+
+.cv2-stage-name {
+  font-size: 84px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cv2-verb {
+  font-size: 144px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.cv2-line-muted {
+  color: var(--text-faint);
+}
+
+.cv2-line-active {
+  color: var(--text);
+}
+.cv2-line-active .cv2-num {
+  color: var(--accent);
+  text-shadow: 8px 8px 0 var(--accent-soft);
+}
+.cv2-line-active .cv2-verb {
+  color: var(--accent);
+}
+
+.cv2-caption {
+  margin-top: 24px;
+  margin-left: 230px;
+  font-family: var(--font-body);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text-mute);
+  letter-spacing: 0.04em;
+}
+.cv2-caption::before {
+  content: "→ ";
+  color: var(--accent);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+/* 竖屏 / 方形：数字 220px 跟动词 144px 一起在 baseline 一行排放不开
+ * 880px 内容区，把数字缩小并允许折行；caption 缩进对齐数字。 */
+.cv-base-root--9x16 .cv2-num,
+.cv-base-root--3x4 .cv2-num,
+.cv-base-root--1x1 .cv2-num {
+  font-size: 144px;
+  min-width: 120px;
+}
+.cv-base-root--9x16 .cv2-stage-name,
+.cv-base-root--3x4 .cv2-stage-name,
+.cv-base-root--1x1 .cv2-stage-name {
+  font-size: 60px;
+}
+.cv-base-root--9x16 .cv2-verb,
+.cv-base-root--3x4 .cv2-verb,
+.cv-base-root--1x1 .cv2-verb {
+  font-size: 100px;
+}
+.cv-base-root--9x16 .cv2-line,
+.cv-base-root--3x4 .cv2-line,
+.cv-base-root--1x1 .cv2-line {
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.cv-base-root--9x16 .cv2-caption,
+.cv-base-root--3x4 .cv2-caption,
+.cv-base-root--1x1 .cv2-caption {
+  margin-left: 0;
+}

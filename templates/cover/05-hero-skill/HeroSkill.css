@@ -1,0 +1,85 @@
+/* Cover 05 · hero-skill — 单一名词 Skill 占据视觉中心
+ * Prefix: .cv5-
+ *
+ * 颜色 / 字体全走 var(--token)。复用模板时本文件**不需要任何替换** ——
+ * 如果 hero 词是中文 1~2 字，建议把 .cv5-hero 的 font-size 从 460px 调到
+ * 560~640px，让字撑满中心舞台。
+ */
+
+.cv5-stage {
+  position: absolute;
+  top: 180px;
+  left: 100px;
+  right: 100px;
+  bottom: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+}
+
+.cv5-prefix {
+  font-family: var(--font-display-cn);
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--text-mute);
+}
+
+.cv5-hero {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display-en);
+  font-weight: 900;
+  font-size: 460px;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+}
+
+.cv5-hero-main {
+  position: relative;
+  color: var(--accent);
+  display: block;
+}
+
+.cv5-hero-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 4px var(--accent-soft);
+  transform: translate(20px, 20px);
+  display: block;
+  pointer-events: none;
+}
+
+.cv5-sub {
+  margin-top: 18px;
+  font-family: var(--font-display-cn);
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--text);
+}
+
+/* 竖屏 / 方形：hero 460px 在 1080 宽内若是长英文单词会溢出，缩到 320px。
+ * 中文 1~2 字 hero 可在覆盖项目里再 bump 回 480px+。 */
+.cv-base-root--9x16 .cv5-hero,
+.cv-base-root--3x4 .cv5-hero,
+.cv-base-root--1x1 .cv5-hero {
+  font-size: 320px;
+}
+.cv-base-root--1x1 .cv5-hero {
+  font-size: 260px;
+}
+.cv-base-root--9x16 .cv5-prefix,
+.cv-base-root--3x4 .cv5-prefix,
+.cv-base-root--1x1 .cv5-prefix {
+  font-size: 44px;
+}
+.cv-base-root--9x16 .cv5-sub,
+.cv-base-root--3x4 .cv5-sub,
+.cv-base-root--1x1 .cv5-sub {
+  font-size: 38px;
+}
